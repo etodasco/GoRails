@@ -21,6 +21,7 @@ patch "password/reset/edit", to: "password_resets#update"
 get "auth/twitter/callback", to: "omniauth_callbacks#twitter"
 
 resources :twitter_accounts
+resources :tweets
 
 root to: "main#index"
 end
