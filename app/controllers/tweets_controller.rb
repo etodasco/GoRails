@@ -26,6 +26,8 @@ class TweetsController < ApplicationController
     end
 
     def destroy
+        @tweet.destroy
+        redirect_to tweets_path, notice: "Tweet was successfully unscheduled."
     end
 
     def edit
