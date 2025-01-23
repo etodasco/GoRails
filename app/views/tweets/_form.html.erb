@@ -18,7 +18,12 @@
     </div>
   </div>
 
-  <%= form.submit "Schedule", class: "btn btn-primary" %> 
+  <div class="d-flex gap-2 mb-3">
+    <%= form.submit "Schedule Tweet", class: "btn btn-primary" %>
+    <% if tweet.persisted? %>
+      <%= button_to "Delete Tweet", tweet_path(tweet), method: :delete, data: { confirm: "Are you sure you want to delete this tweet?" }, class: "btn btn-outline-danger" %>
+    <% end %>
+  </div>
 <% end %>
 
 <div class="mb-3">
