@@ -1,4 +1,7 @@
 class TweetsController < ApplicationController
+    before_action :require_user_logged_in!
+    before_action :set_tweet, only: [:edit, :update, :destroy]
+
     def require_user_logged_in!
         unless Current.user
           redirect_to login_path, alert: "Please log in first."
@@ -16,15 +19,32 @@ class TweetsController < ApplicationController
     def create
         @tweet = Current.user.tweets.new(tweet_params)
         if @tweet.save
-            redirect_to tweets_path, notice: "Tweet was scheduled successfully"
+            redirect_to tweets_path, notice: "Tweet was scheduled successfully."
         else
-            render :new
+            render :edit
         end
-    end        
+    end
+
+    def destroy
+    end
+
+    def edit
+    end
+
+    def update
+        if @tweet.update(tweet_params)
+        redirect_to tweets_path, notice: "Tweet was updated successfully."
+        else
+        end
+    end
 
     private
 
     def tweet_params
         params.require(:tweet).permit(:twitter_account_id, :body, :publish_at)
-    end    
+    end
+
+    def set_tweet
+        @tweet = Current.user.tweets.find(params[:id])
+    end
 end
