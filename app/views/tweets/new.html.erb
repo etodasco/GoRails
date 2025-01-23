@@ -1,25 +1,28 @@
 <h1>Schedule a Tweet</h1>
 
-<%= form_with model: @tweet do |form| %>
-<%= render "/shared/form_errors", form: form %>
+<%= form_with model: @tweet, html: { data: { turbo: false } } do |form| %>
+  <%= render "/shared/form_errors", form: form %>
 
-    <div class="mb-3">
-        <%= form.label :twitter_account_id %>
-        <%= form.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, { class: "form-control" } %>
-        <%= button_to "Connect your X Account", "/auth/twitter", data: { turbo: false }, local: true, method: :post, class: "btn btn-primary" %>
+  <div class="mb-3">
+    <%= form.label :twitter_account_id %>
+    <%= form.collection_select :twitter_account_id, Current.user.twitter_accounts, :id, :username, {}, { class: "form-control" } %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :body %>
+    <%= form.text_area :body, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :publish_at %>
+    <div class="form-control">
+      <%= form.datetime_select :publish_at %>
     </div>
+  </div>
 
-    <div class="mb-3">
-        <%= form.label :body %>
-        <%= form.text_area :body, class: "form-control" %>
-    </div>
-
-    <div class="mb-3">
-        <%= form.label :publish_at %>
-        <div class="form-control">
-            <%= form.datetime_select :publish_at %>
-        </div>
-    </div>
-
-<%= form.button "Schedule", class: "btn btn-primary" %>
+  <%= form.submit "Schedule", class: "btn btn-primary" %> 
 <% end %>
+
+<div class="mb-3">
+  <%= button_to "Connect your X Account", "/auth/twitter", data: { turbo: false }, method: :post, class: "btn btn-primary" %>
+</div>

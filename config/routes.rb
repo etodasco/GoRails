@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+get '/manifest.json', to: 'static#manifest'
+
+
 get "about", to: "about#index"
 
 get "password", to: "passwords#edit", as: :edit_password
