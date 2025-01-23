@@ -21,7 +21,7 @@
   <div class="d-flex gap-2 mb-3">
     <%= form.submit "Schedule Tweet", class: "btn btn-primary" %>
     <% if tweet.persisted? %>
-      <%= button_to "Delete Tweet", tweet_path(tweet), method: :delete, data: { confirm: "Are you sure you want to delete this tweet?" }, class: "btn btn-outline-danger" %>
+        <%= button_to "Delete", form.object, method: :delete, class: "btn btn-outline-danger", data: { turbo: false }, onclick: "return confirm('Are you sure you want to delete this?');" %>
     <% end %>
   </div>
 <% end %>
