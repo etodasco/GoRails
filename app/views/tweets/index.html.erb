@@ -10,3 +10,4 @@
     <%= button_to "Connect your X Account", "/auth/twitter", data: { turbo: false }, local: true, method: :post, class: "btn btn-primary" %>
 <% end %>
 
+<%= render @tweets %>
