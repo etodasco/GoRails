@@ -14,7 +14,7 @@ class Tweet < ApplicationRecord
   end
 
   def publish_to_twitter!
-    tweet = twitter_account.client.update(body)
+    tweet = twitter_account.client.update("tweets", { text: body }.to_json)
     update(tweet_id: tweet.id)
   end
   
