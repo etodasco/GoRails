@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 get '/favicon.ico', to: ->(_) { [204, {}, []] }
+get '/auth/failure', to: 'sessions#failure'
 
 
 get '/manifest.json', to: 'static#manifest'

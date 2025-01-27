@@ -17,4 +17,9 @@ class SessionsController < ApplicationController
         session[:user_id] = nil
         redirect_to root_path, notice: "Logged Out"
     end
+
+    def failure
+        flash[:alert] = "Authentication failed. Please try again."
+        redirect_to root_path
+      end
 end
