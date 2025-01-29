@@ -81,18 +81,19 @@ test:
 production:
   primary: &primary_production
     <<: *default
+    url: <%= ENV["DATABASE_URL"] %>
     database: scheduled_tweets_production
     username: scheduled_tweets
     password: <%= ENV["SCHEDULED_TWEETS_DATABASE_PASSWORD"] %>
-  cache:
-    <<: *primary_production
-    database: scheduled_tweets_production_cache
-    migrations_paths: db/cache_migrate
-  queue:
-    <<: *primary_production
-    database: scheduled_tweets_production_queue
-    migrations_paths: db/queue_migrate
-  cable:
-    <<: *primary_production
-    database: scheduled_tweets_production_cable
-    migrations_paths: db/cable_migrate
+  # cache:
+  #   <<: *primary_production
+  #   database: scheduled_tweets_production_cache
+  #   migrations_paths: db/cache_migrate
+  # queue:
+  #   <<: *primary_production
+  #   database: scheduled_tweets_production_queue
+  #   migrations_paths: db/queue_migrate
+  # cable:
+  #   <<: *primary_production
+  #   database: scheduled_tweets_production_cable
+  #   migrations_paths: db/cable_migrate
