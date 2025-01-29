@@ -2,7 +2,6 @@ source "https://rubygems.org"
 
 ruby '3.4.1'
 
-
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 8.0.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
@@ -61,6 +60,6 @@ end
 
 gem "omniauth-twitter", "~> 1.4"
 gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.2'
-gem "x", "~> 0.14.1"
 
+gem "x", "~> 0.14.1"
 gem "sidekiq"
