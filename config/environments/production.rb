@@ -102,11 +102,11 @@ Rails.application.configure do
   # ]
   # Skip DNS rebinding protection for the default health check endpoint.
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
-  config.active_job.queue_adapter = :sidekiq
-end
 
+  config.active_job.queue_adapter = :sidekiq
+
+  # Ensure Rails uses DATABASE_URL for production
   config.active_record.database_configuration = {
     "production" => { "url" => ENV["DATABASE_URL"] }
   }
 end
-
