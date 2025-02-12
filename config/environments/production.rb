@@ -104,3 +104,10 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
   config.active_job.queue_adapter = :sidekiq
 end
+
+Rails.application.configure do
+  config.active_record.database_configuration = {
+    "production" => { "url" => ENV["DATABASE_URL"] }
+  }
+end
+
