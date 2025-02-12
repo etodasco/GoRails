@@ -79,12 +79,9 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
-  primary: &primary_production
-    <<: *default
-    url: <%= ENV["DATABASE_URL"] %>
-    database: scheduled_tweets_production
-    username: scheduled_tweets
-    password: <%= ENV["SCHEDULED_TWEETS_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
+  pool: 5
+
   # cache:
   #   <<: *primary_production
   #   database: scheduled_tweets_production_cache
