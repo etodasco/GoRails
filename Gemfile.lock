@@ -352,7 +352,7 @@ DEPENDENCIES
   jbuilder
   omniauth-rails_csrf_protection (~> 1.0, >= 1.0.2)
   omniauth-twitter (~> 1.4)
-  pg
+  pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 8.0.1)
   rubocop-rails-omakase
