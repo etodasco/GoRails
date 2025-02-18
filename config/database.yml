@@ -3,23 +3,19 @@ default: &default
   encoding: unicode
   pool: 5
   username: erictodasco
-  host: 127.0.0.1
-  port: 5432
+  password: <your_password> # If applicable
+  host: localhost
 
 development:
   <<: *default
-  database: scheduled_tweets_development
-  # Uncomment if you need a password:
-  # password: <%= ENV['POSTGRES_PASSWORD'] %>
+  database: your_app_development
 
 test:
   <<: *default
-  database: scheduled_tweets_test
+  database: your_app_test
 
 production:
   <<: *default
-  database: scheduled_tweets_production
-  url: <%= ENV['DATABASE_URL'] %>
-  pool: 5
-  # Uncomment if using a password:
-  # password: <%= ENV['POSTGRES_PASSWORD'] %>
+  database: your_app_production
+  username: your_production_user
+  password: <%= ENV["DATABASE_PASSWORD"] %>
