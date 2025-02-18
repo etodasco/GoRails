@@ -83,4 +83,4 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  url: <%= ENV['postgresql://postgres:postgres@172.17.0.1:5000/production'] %>
+  url: <%= ENV['postgresql://postgres:postgres@127.0.0.1:5000/production'] %>
