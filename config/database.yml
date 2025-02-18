@@ -3,7 +3,6 @@ default: &default
   encoding: unicode
   pool: 5
   username: erictodasco
-  password: <your_password> # If applicable
   host: localhost
 
 development:
