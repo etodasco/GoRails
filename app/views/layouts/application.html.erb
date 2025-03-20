@@ -25,7 +25,10 @@
     <%= render partial: "shared/navbar" %>
 
     <div class="container">
-    <%= render partial: "shared/flash" %>
+      <% unless controller_name == "about" && action_name == "index" %>
+        <%= render partial: "shared/flash" %>
+      <% end %>
+
       <%= yield %>
     </div>
   </body>

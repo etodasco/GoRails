@@ -6,7 +6,7 @@
                 <div class="me-3 text-center">
                     <%= image_tag tweet.twitter_account.image, class: "rounded-circle" %>
                     <div class="mt-2">
-                        <%= link_to "@#{tweet.twitter_account.username}", 
+                        User: <%= link_to "@#{tweet.twitter_account.username}", 
                             "https://x.com/#{tweet.twitter_account.username}", 
                             target: :_blank, class: "d-block text-muted" %>
                     </div>
