@@ -1,14 +1,23 @@
-<div class="mb-3 card card-body">
-    <%= tweet.body %>
-        <div class="me-4">
-            <%= image_tag tweet.twitter_account.image, class: "rounded-circle" %>
-            <%= link_to "@#{tweet.twitter_account.username}", "https://x.com/#{tweet.twitter_account.username}", target: :_blank %>
+<div class="container">
 
-            <% if tweet.published? %>
-            <%= link_to "View X Post", "https://x.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :_blank %>
-            <% else %>
-            Scheduled for: <%= l tweet.publish_at, format: :long %>
-            <%= link_to "Edit X Post", edit_tweet_path(tweet) %>
-            <% end %>
+    <!-- Scheduled Posts Section -->
+    <% if @scheduled_posts.any? %>
+        <div class="mb-4">
+            <h2 class="mb-3">Scheduled Posts</h2>
+            <div class="row">
+                <%= render partial: 'post_card', collection: @scheduled_posts, as: :tweet, locals: { type: 'scheduled' } %>
+            </div>
         </div>
+    <% end %>
+
+    <!-- Past Posts Section -->
+    <% if @past_posts.any? %>
+        <div>
+            <h2 class="mb-3">Past Posts</h2>
+            <div class="row">
+                <%= render partial: 'post_card', collection: @past_posts, as: :tweet, locals: { type: 'past' } %>
+            </div>
+        </div>
+    <% end %>
+
 </div>

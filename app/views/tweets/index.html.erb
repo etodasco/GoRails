@@ -1,13 +1,32 @@
-<div class="d-flex justify-content-between align-items-center">
-    <h1>X Posts</h1>
+<div class="container">
 
-    <% if Current.user.twitter_accounts.any? %>
-        <%= link_to "Schedule X Post", new_tweet_path, class: "btn btn-primary" %>
+    <!-- Header with "Schedule X Post" Button -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Scheduled Posts</h2>
+        <% if Current.user.twitter_accounts.any? %>
+            <%= link_to "Schedule X Post", new_tweet_path, class: "btn btn-primary" %>
+        <% end %>
+    </div>
+
+    <!-- Scheduled Posts Section -->
+    <% if @scheduled_posts.any? %>
+        <div class="row">
+            <% @scheduled_posts.each do |tweet| %>
+                <%= render 'post_card', tweet: tweet, type: 'scheduled' %>
+            <% end %>
+        </div>
     <% end %>
+
+    <!-- Past Posts Section -->
+    <% if @past_posts.any? %>
+        <div class="mt-4">
+            <h2 class="mb-3">Past Posts</h2>
+            <div class="row">
+                <% @past_posts.each do |tweet| %>
+                    <%= render 'post_card', tweet: tweet, type: 'past' %>
+                <% end %>
+            </div>
+        </div>
+    <% end %>
+
 </div>
-
-<% if Current.user.twitter_accounts.none? %>
-    <%= button_to "Connect your X Account", "/auth/twitter", data: { turbo: false }, local: true, method: :post, class: "btn btn-primary" %>
-<% end %>
-
-<%= render @tweets %>

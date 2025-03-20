@@ -10,6 +10,8 @@ class TweetsController < ApplicationController
 
     def index
         @tweets = Current.user.tweets
+        @scheduled_posts = Tweet.where("publish_at > ?", Time.current)
+        @past_posts = Tweet.where("publish_at <= ?", Time.current).order(publish_at: :desc)
     end
 
     def new
