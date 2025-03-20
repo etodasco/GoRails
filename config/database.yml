@@ -13,4 +13,5 @@ test:
   database: scheduled_tweets_test
 
 production:
+  <<: *default
   url: <%= ENV['DATABASE_URL'] %>
