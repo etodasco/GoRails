@@ -11,15 +11,15 @@
     <%= form.text_area :body, class: "form-control" %>
   </div>
 
-  <div class="mb-3">
-    <%= form.label :publish_at %>
-    <div class="form-control">
-      <%= form.datetime_select :publish_at %>
-    </div>
+<div class="mb-3">
+  <%= form.label :publish_at %>
+  <div class="form-control">
+    <%= form.datetime_select :publish_at, ampm: true %>
   </div>
+</div>
 
   <div class="d-flex gap-2 mb-3">
-    <%= form.submit "Schedule Tweet", class: "btn btn-primary" %>
+    <%= form.submit "Schedule X Post", class: "btn btn-primary" %>
     <% if tweet.persisted? %>
         <%= button_to "Delete", form.object, method: :delete, class: "btn btn-outline-danger", data: { turbo: false }, onclick: "return confirm('Are you sure you want to delete this?');" %>
     <% end %>

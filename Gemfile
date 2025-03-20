@@ -8,10 +8,10 @@ gem "rails", "~> 8.0.1"
 gem "sprockets-rails"
 # Use pg as the database for Active Record
 
-# gem "pg", "~> 1.5.9"
+gem "pg"
 
 # Sqlite
-gem 'sqlite3', '~> 2.0', '>= 2.0.2'
+# gem 'sqlite3', '~> 2.0', '>= 2.0.2'
 
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
@@ -68,3 +68,5 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.2'
 
 gem "x", "~> 0.14.1"
 gem "sidekiq"
+gem 'dotenv-rails', groups: [:development, :test]
+

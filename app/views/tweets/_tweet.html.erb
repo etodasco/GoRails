@@ -5,10 +5,10 @@
             <%= link_to "@#{tweet.twitter_account.username}", "https://x.com/#{tweet.twitter_account.username}", target: :_blank %>
 
             <% if tweet.published? %>
-            <%= link_to "View Tweet", "https://x.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :_blank %>
+            <%= link_to "View X Post", "https://x.com/#{tweet.twitter_account.username}/status/#{tweet.tweet_id}", target: :_blank %>
             <% else %>
             Scheduled for: <%= l tweet.publish_at, format: :long %>
-            <%= link_to "Edit Tweet", edit_tweet_path(tweet) %>
+            <%= link_to "Edit X Post", edit_tweet_path(tweet) %>
             <% end %>
         </div>
 </div>

@@ -4,9 +4,9 @@ class TweetsController < ApplicationController
 
     def require_user_logged_in!
         unless Current.user
-          redirect_to login_path, alert: "Please log in first."
+          redirect_to sign_in_path, alert: "Please log in first."
         end
-      end      
+      end
 
     def index
         @tweets = Current.user.tweets
