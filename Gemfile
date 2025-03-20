@@ -68,5 +68,5 @@ gem 'omniauth-rails_csrf_protection', '~> 1.0', '>= 1.0.2'
 
 gem "x", "~> 0.14.1"
 gem "sidekiq"
-gem 'dotenv-rails', groups: [:development, :test]
 
+gem 'dotenv-rails', groups: [:development, :test]

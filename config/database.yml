@@ -13,12 +13,8 @@ development:
 
 test:
   <<: *default
-  database: scheduled_tweets_development
+  database: scheduled_tweets_test
 
 production:
   <<: *default
-  database: scheduled_tweets_development
-  username: <%= ENV['POSTGRES_USER'] %>
-  password: <%= ENV['POSTGRES_PASSWORD'] %>
-  host: <%= ENV['POSTGRES_HOST'] || 'localhost' %>
-  port: <%= ENV['POSTGRES_PORT'] || 5432 %>
+  database: scheduled_tweets_production
